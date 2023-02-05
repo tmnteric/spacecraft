@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>addSpacecraft</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Creacion de la nave</h1>
+        <a th:href="@{/}">Inicio</a><br><br>
+        <a th:href="@{/select}">Seleccionar nave</a><br><br>
+        
+        <form th:action="@{/guardar}" method="post" th:object="${nave_espacial}">
+            <label for="nombre">tipo de nave:</label>
+            <input type="text" name="tipo_nave" th:field="*{tipo_nave}"/><br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/><br>
+            <label for="nombre">Pais de creacion:</label>
+            <input type="text" name="pais_creacion" th:field="*{pais_creacion}"/><br>
+            <label for="nombre">Combustible:</label>
+            <input type="text" name="combustible" th:field="*{combustible}"/><br>
+            <label for="nombre">Fecha:</label>
+            <input type="number" name="fecha" th:field="*{fecha}"/><br>
+            <label for="nombre">Potencia:</label>
+            <input type="text" name="potencia" th:field="*{potencia}"/><br>
+            <label for="number">Cantidad de pasajeros:</label>
+            <input type="text" name="cantidad_pasajeros" th:field="*{cantidad_pasajeros}"/><br>
+            <label for="nombre">Misiones:</label>
+            <input type="text" name="misiones" th:field="*{misiones}"/><br>
+            <input type="submit" name="Crear" value="Crear Nave">
+        </form>
+    </body>
+</html>

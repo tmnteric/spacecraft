@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Select Spacecraft</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Seleccion de la nave</h1>
+        <a th:href="@{/}">Inicio</a><br><br>
+        
+        <input type="button" class="btn btn-secundary mb-2" value="Crear Nave Lanzadera" onclick="crearNaveLanzadera()">
+        <input type="button" class="btn btn-secundary mb-2" value="Crear Nave No Tripulada" onclick="crearNaveNoTripulada()">
+        <input type="button" class="btn btn-secundary mb-2" value="Crear Nave Tripulada" onclick="crearNaveTripulada()">
+        <script type="text/javascript">
+            function crearNaveLanzadera(){
+                window.location='/addLanzadera';
+            }
+            function crearNaveNoTripulada(){
+                window.location='/addNoTripulada';
+            }
+            function crearNaveTripulada(){
+                window.location='/addTripulada';
+            }
+        </script>
+    </body>
+</html>
+
