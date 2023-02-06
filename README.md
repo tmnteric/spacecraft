@@ -7,7 +7,6 @@ Este proyecto se raliza basado en la **POO**, el cual su funcionalidad es hacer 
 
 ## Creacion de la base de datos
 ![database](https://user-images.githubusercontent.com/111714309/216985713-d220b00a-a682-4681-b374-24aa58cfcfcd.PNG)
-![database2](https://user-images.githubusercontent.com/111714309/216985736-c0b46540-79d2-496e-9d5f-ed4c14af0016.PNG)
 
 ## Configuración IDE recomendada
 
