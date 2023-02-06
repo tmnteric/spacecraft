@@ -1,0 +1,26 @@
+Sentencias para la creacion de la base de datos 
+
+- creacionde base de datos:
+
+create database spacecraft;
+
+use spacecraft;
+
+- creacion de la tabla:
+
+create table nave_espacial(
+	Id_nave int (20) primary key auto_increment,
+	tipo_nave varchar(70) not null,
+    nombre varchar(100) not null,
+    pais_creacion varchar(45) not null,
+    combustible varchar(80) not null,
+	fecha int (50) not null,
+    potencia varchar(32) not null,
+	peso_toneladas varchar(50) ,
+    carga varchar (50),
+    donde_orbita varchar(52),
+    motores int(25),
+    distancia_de_la_tierra varchar(50) ,
+    cantidad_pasajeros int(25) ,
+    misiones varchar (61)
+); 
