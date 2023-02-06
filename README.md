@@ -1,6 +1,6 @@
 # Spacecraft
 
-Este proyecto se raliza basado en la **POO**, el cual su funcionalidad es hacer la creacion de tipos de naves, la cual por cada tipo tendra una funcionalidad diferente, se realiza una barra de busqueda y un listando de las naves espaciales creadas en un archivo indes.html.
+Este proyecto se realiza basado en Programación Orientada a Objetos (POO), con el objetivo de crear diferentes tipos de naves espaciales. Cada tipo tendrá una funcionalidad específica. Además, se implementará una barra de búsqueda y un listado de las naves espaciales creadas en un archivo index.html.
 
 ## Diagrama entidad relacion
 ![diagramaEntidadRelacion](https://user-images.githubusercontent.com/111714309/216983168-f2950cc1-fc8e-4960-bbf2-d74dd0d699dd.png)
@@ -17,7 +17,7 @@ Este proyecto se raliza basado en la **POO**, el cual su funcionalidad es hacer 
 
 ### Configuración
 
-El proyecto se lanza de manera local en el puerto localhost:8080, y se crean sus respectivos path para el despliegue de este, las cuales son:
+"El proyecto se ejecuta localmente en el puerto localhost:8080 y se definen las rutas correspondientes para su despliegue, las cuales son:"
 - ("/") pagina de inicio
 - ("/select") seleccionador de tipos de nave a crear
 - ("/addLanzadera") creacion del tipo de nave lanzadera con sus especificaciones
