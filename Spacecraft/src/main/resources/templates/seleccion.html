@@ -1,25 +1,41 @@
+<!-- Nos permite realizar una seleccion para redirigirnos a la creacion de las diferentes tipos de nave -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Select Spacecraft</title>
         <meta charset="UTF-8">
+        <!-- agregamos las librerias para poder usar bootstrap -->
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
     </head>
     <body>
-        <h1>Seleccion de la nave</h1>
-        <a th:href="@{/}">Inicio</a><br><br>
-        
-        <input type="button" class="btn btn-secundary mb-2" value="Crear Nave Lanzadera" onclick="crearNaveLanzadera()">
-        <input type="button" class="btn btn-secundary mb-2" value="Crear Nave No Tripulada" onclick="crearNaveNoTripulada()">
-        <input type="button" class="btn btn-secundary mb-2" value="Crear Nave Tripulada" onclick="crearNaveTripulada()">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-2" bg-info text-white>
+                <form class="form-inline">
+
+                    <i class="fa-solid fa-moon-stars" bg-info text-white></i>
+                    <button class="btn btn-sm btn-outline-secondary" type="button" value="Inicio" onclick="Inicio()">Inicio</button>
+                </form>
+            </nav>
+        </header>
+        <h1><center>Seleccion de la nave</center></h1>
+        <div class="container"><center>
+                <input type="button" class="btn btn-sm btn-outline-secondary" value="Crear Nave Lanzadera" onclick="crearNaveLanzadera()"><br><br>
+                <input type="button" class="btn btn-sm btn-outline-secondary" value="Crear Nave No Tripulada" onclick="crearNaveNoTripulada()"><br><br>
+                <input type="button" class="btn btn-sm btn-outline-secondary" value="Crear Nave Tripulada" onclick="crearNaveTripulada()"><br>
+            </center></div>
         <script type="text/javascript">
-            function crearNaveLanzadera(){
-                window.location='/addLanzadera';
+            function Inicio() {
+                window.location = '/';
             }
-            function crearNaveNoTripulada(){
-                window.location='/addNoTripulada';
+            function crearNaveLanzadera() {
+                window.location = '/addLanzadera';
             }
-            function crearNaveTripulada(){
-                window.location='/addTripulada';
+            function crearNaveNoTripulada() {
+                window.location = '/addNoTripulada';
+            }
+            function crearNaveTripulada() {
+                window.location = '/addTripulada';
             }
         </script>
     </body>

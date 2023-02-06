@@ -1,35 +1,71 @@
+<!-- Nos permite la creacion para la tabla de naves no tripuladas -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>addSpacecraft</title>
         <meta charset="UTF-8">
+        <!-- agregamos las librerias para poder usar bootstrap -->
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
     </head>
     <body>
-        <h1>Creacion de la nave</h1>
-                
-        <a th:href="@{/}">Inicio</a><br><br>
-        <a th:href="@{/select}">Seleccionar nave</a><br><br>
-        
-        <form th:action="@{/guardar}" method="post" th:object="${nave_espacial}">
-            <label for="nombre">tipo de nave:</label>
-            <input type="text" name="tipo_nave" th:field="*{tipo_nave}"/><br>
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" th:field="*{nombre}"/><br>
-            <label for="nombre">Pais de creacion:</label>
-            <input type="text" name="pais_creacion" th:field="*{pais_creacion}"/><br>
-            <label for="nombre">Combustible:</label>
-            <input type="text" name="combustible" th:field="*{combustible}"/><br>
-            <label for="nombre">Fecha:</label>
-            <input type="number" name="fecha" th:field="*{fecha}"/><br>
-            <label for="nombre">Potencia:</label>
-            <input type="text" name="potencia" th:field="*{potencia}"/><br>
-            <label for="nombre">Lugar donde orbita</label>
-            <input type="text" name="donde_orbita" th:field="*{donde_orbita}"/><br>
-            <label for="number">Motores:</label>
-            <input type="text" name="motores" th:field="*{motores}"/><br>
-            <label for="number">Distancia de la tierra:</label>
-            <input type="text" name="distancia_de_la_tierra" th:field="*{distancia_de_la_tierra}"/><br><br>
-            <input type="submit" name="Crear" value="Crear Nave">
-        </form>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3 ">
+                <form class="form-inline">
+                    <button class="btn btn-sm btn-outline-secondary" type="button" value="Inicio" onclick="Inicio()">Inicio</button>
+                    <button class="btn btn-sm btn-outline-secondary" type="button" onclick="seleccionarNave()">Seleccionar nave a crear</button>
+                </form>
+            </nav>
+        </header>
+        <h1><center>Creacion de la nave no tripulada</h1><br><br>
+        <div class="container">
+            <form th:action="@{/guardar}" method="post" th:object="${nave_espacial}" class="was-validated">
+                <div class="form-group">
+                    <label for="nombre">tipo de nave:</label>
+                    <input type="text" class="form-control" name="tipo_nave" value='Nave No Tripulada' readonly/>
+                </div><br>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" name="nombre" th:field="*{nombre}"/>
+                </div><br>
+                <div class="form-group">
+                    <label for="nombre">Pais de creacion:</label>
+                    <input type="text" class="form-control" name="pais_creacion" th:field="*{pais_creacion}"/>
+                </div><br>
+                <div class="form-group">
+                    <label for="nombre">Combustible:</label>
+                    <input type="text" class="form-control" name="combustible" th:field="*{combustible}"/>
+                </div><br>
+                <div class="form-group">
+                    <label for="nombre">Fecha:</label>
+                    <input type="number" class="form-control" name="fecha" th:field="*{fecha}"/>
+                </div><br>
+                <div class="form-group">
+                    <label for="nombre">Potencia:</label>
+                    <input type="text" class="form-control" name="potencia" th:field="*{potencia}"/>
+                </div><br>
+                <div class="form-group">
+                    <label for="nombre">Lugar donde orbita</label>
+                    <input type="text" class="form-control" name="donde_orbita" th:field="*{donde_orbita}"/>
+                </div><br>
+                <div class="form-group">
+                    <label for="number">Motores:</label>
+                    <input type="text" class="form-control" name="motores" th:field="*{motores}"/>
+                </div><br>
+                <div class="form-group">
+                    <label for="number">Distancia de la tierra:</label>
+                    <input type="text" class="form-control" name="distancia_de_la_tierra" th:field="*{distancia_de_la_tierra}"/>
+                </div>
+                <input type="submit" class="btn btn-sm btn-outline-secondary" name="Crear" value="Crear Nave">
+            </form>
+        </div>
+        <script type="text/javascript">
+            function Inicio() {
+                window.location = '/';
+            }
+            function seleccionarNave() {
+                window.location = '/select';
+            }
+        </script>
     </body>
 </html>

@@ -1,33 +1,68 @@
+<!-- Nos permite la creacion para la tabla de naves lanzadera -->
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>addSpacecraft</title>
         <meta charset="UTF-8">
+        <!-- agregamos las librerias para poder usar bootstrap -->
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
     </head>
     <body>
-        <h1>Creacion de la nave</h1>
-        <a th:href="@{/}">Inicio</a><br><br>
-        <a th:href="@{/select}">Seleccionar nave</a><br><br>
-        
-        <form th:action="@{/guardar}" method="post" th:object="${nave_espacial}">
-            <label for="nombre">tipo de nave:</label>
-            <input type="text" name="tipo_nave" value='Nave Lanzadera'readonly><br>
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" th:field="*{nombre}"/><br>
-            <label for="nombre">Pais de creacion:</label>
-            <input type="text" name="pais_creacion" th:field="*{pais_creacion}"/><br>
-            <label for="nombre">Combustible:</label>
-            <input type="text" name="combustible" th:field="*{combustible}"/><br>
-            <label for="nombre">Fecha:</label>
-            <input type="number" name="fecha" th:field="*{fecha}"/><br>
-            <label for="nombre">Potencia:</label>
-            <input type="text" name="potencia" th:field="*{potencia}"/><br>
-            <label for="number">Peso en Toneladas:</label>
-            <input type="text" name="potencia" th:field="*{peso_toneladas}"/><br>
-            <label for="nombre">Carga:</label>
-            <input type="text" name="potencia" th:field="*{carga}"/><br><br>
-            <input type="submit" name="Crear" value="Crear Nave">
-        </form>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3 ">
+                <form class="form-inline">
+                    <button class="btn btn-sm btn-outline-secondary" type="button" value="Inicio" onclick="Inicio()">Inicio</button>
+                    <button class="btn btn-sm btn-outline-secondary" type="button" onclick="seleccionarNave()">Seleccionar nave a crear</button>
+                </form>
+            </nav>
+        </header>
+        <h1><center>Creacion de la nave lanzadera</h1><br><br>
+        <div class="container">
+            <form th:action="@{/guardar}" method="post" th:object="${nave_espacial}" class="was-validated">
+                <div class="form-group">
+                    <label for="nombre">tipo de nave:</label>
+                    <input type="text" class="form-control" name="tipo_nave" value='Nave Lanzadera'readonly>
+                </div><br>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" name="nombre" th:field="*{nombre}"/><br>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Pais de creacion:</label>
+                    <input type="text" class="form-control" name="pais_creacion" th:field="*{pais_creacion}"/><br>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Combustible:</label>
+                    <input type="text" class="form-control" name="combustible" th:field="*{combustible}"/><br>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Fecha:</label>
+                    <input type="number" class="form-control" name="fecha" th:field="*{fecha}"/><br>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Potencia:</label>
+                    <input type="text" class="form-control" name="potencia" th:field="*{potencia}"/><br>
+                </div>
+                <div class="form-group">
+                    <label for="text">Peso en Toneladas:</label>
+                    <input type="text" class="form-control" name="potencia" th:field="*{peso_toneladas}"/><br>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Carga:</label>
+                    <input type="text" class="form-control" name="potencia" th:field="*{carga}"/>
+                </div>
+                <input type="submit" class="btn btn-sm btn-outline-secondary" name="Crear" value="Crear Nave">
+            </form>
+        </div>
+        <script type="text/javascript">
+            function Inicio() {
+                window.location = '/';
+            }
+            function seleccionarNave() {
+                window.location = '/select';
+            }
+        </script>
     </body>
 </html>

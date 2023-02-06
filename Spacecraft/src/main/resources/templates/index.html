@@ -1,61 +1,81 @@
+<!-- nos permite hacer un tipo de busqueda en la tabla de la base de datos, tambien creamos la tabla con el registro de la base de datos  -->
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Spacecraft</title>
         <meta charset="UTF-8">
+        <!-- agregamos las librerias para poder usar bootstrap -->
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+
     </head>
     <body>
-        <a th:href="@{/select}">Seleccionar nave</a><br><br>
-        <form class="form-inline" th:action="@{/}">
-            <div class="form-group mb-2">
-                <label>Filtrar:</label>
+        <h1><center>Naves Espaciales</center></h1><br><br>
+        <div class="container">
+            <form class="form-inline" th:action="@{/}">
+                <div class="form-group mb-2">
+                    <label>Filtrar:</label>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <input type="text" name="palabraClave" class="form-control" id="palabraClave" th:value="${palabraClave}" placeholder="Buscar..." required>
+                </div>
+                <form class="form-inline">
+                    <input type="submit" class="btn btn-sm btn-outline-secondary" value="Buscar">
+                    &nbsp;&nbsp;
+                    <button class="btn btn-sm btn-outline-secondary" type="button" value="Inicio" onclick="limpiarCampos()">Limpiar</button>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-sm btn-outline-secondary" type="button" onclick="seleccionarNave()">Seleccionar nave a crear</button>
+                </form>
+            </form>
+            <br>
+            <p>Conoce un poco mas sobre las especificaciones de una nave espacial en la siguiente tabla</p><br>
+            <div th:if="${naveEspacial != null and !naveEspacial.empty}">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">tipo de nave</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">pais de creacion</th>
+                            <th scope="col">combustible</th>
+                            <th scope="col">fecha</th>
+                            <th scope="col">potencia</th>
+                            <th scope="col">peso en toneladas</th>
+                            <th scope="col">carga</th>
+                            <th scope="col">donde orbita</th>
+                            <th scope="col">motores</th>
+                            <th scope="col">distancia de la tierra</th>
+                            <th scope="col">pasajeros</th>
+                            <th scope="col">misiones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="nave : ${naveEspacial}">
+                            <td th:text="${nave.tipo_nave}">Mostrar tipo de nave espacial</td>
+                            <td th:text="${nave.nombre}">Mostrar nombre</td>
+                            <td th:text="${nave.pais_creacion}">mostrar pais de creacion</td>
+                            <td th:text="${nave.combustible}">Mostrar combistible</td>
+                            <td th:text="${nave.fecha}">mostrar fecha</td>
+                            <td th:text="${nave.potencia}">mostrar potencia</td>
+                            <td th:text="${nave.peso_toneladas}">mostrar peso en toneladas</td>
+                            <td th:text="${nave.carga}">mostrar carga</td>
+                            <td th:text="${nave.donde_orbita}">mostrar donde orbita</td>
+                            <td th:text="${nave.motores}">mostrar motores</td>
+                            <td th:text="${nave.distancia_de_la_tierra}">mostrar distancia de la tierra</td>
+                            <td th:text="${nave.cantidad_pasajeros}">cantidad pasajeros</td>
+                            <td th:text="${nave.misiones}">mostrar misiones</td>
+                        </tr>
+                        </body>
+                </table>
             </div>
-            <div class="form-group mx-sm-3 mb-2">
-                <input type="text" name="palabraClave" class="form-control" id="palabraClave" th:value="${palabraClave}" placeholder="Buscar..." required>
+            <div th:if="${naveEspacial == null or naveEspacial.empty}">
+                La lista esta vacia
             </div>
-            <input type="submit" class="btn btn-info mb-2" value="Buscar">
-            &nbsp;&nbsp;
-            <input type="button" class="btn btn-secundary mb-2" value="limpiar" onclick="limpiarCampos()">
-        </form>
-        <div th:if="${naveEspacial != null and !naveEspacial.empty}">
-            <table border="1">
-                <tr>
-                    <th>tipo de nave</th>
-                    <th>nombre</th>
-                    <th>pais de creacion</th>
-                    <th>combustible</th>
-                    <th>fecha</th>
-                    <th>potencia</th>
-                    <th>peso en toneladas</th>
-                    <th>carga</th>
-                    <th>donde orbita</th>
-                    <th>motores</th>
-                    <th>distancia de la tierra</th>
-                    <th>pasajeros</th>
-                    <th>misiones</th>
-                </tr>
-                <tr th:each="nave : ${naveEspacial}">
-                    <td th:text="${nave.tipo_nave}">Mostrar tipo de nave espacial</td>
-                    <td th:text="${nave.nombre}">Mostrar nombre</td>
-                    <td th:text="${nave.pais_creacion}">mostrar pais de creacion</td>
-                    <td th:text="${nave.combustible}">Mostrar combistible</td>
-                    <td th:text="${nave.fecha}">mostrar fecha</td>
-                    <td th:text="${nave.potencia}">mostrar potencia</td>
-                    <td th:text="${nave.peso_toneladas}">mostrar peso en toneladas</td>
-                    <td th:text="${nave.carga}">mostrar carga</td>
-                    <td th:text="${nave.donde_orbita}">mostrar donde orbita</td>
-                    <td th:text="${nave.motores}">mostrar motores</td>
-                    <td th:text="${nave.distancia_de_la_tierra}">mostrar distancia de la tierra</td>
-                    <td th:text="${nave.cantidad_pasajeros}">cantidad pasajeros</td>
-                    <td th:text="${nave.potencia}">mostrar misiones</td>
-                </tr>
-            </table>
-        </div>
-        <div th:if="${naveEspacial == null or naveEspacial.empty}">
-            La lista esta vacia
         </div>
         <script type="text/javascript">
-            function limpiarCampos(){
-                window.location='/';
+            function limpiarCampos() {
+                window.location = '/';
+            }
+            function seleccionarNave() {
+                window.location = '/select';
             }
         </script>
     </body>
