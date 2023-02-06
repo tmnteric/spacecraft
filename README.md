@@ -4,7 +4,7 @@ Este proyecto se realiza basado en Programación Orientada a Objetos (POO), con 
 
 ### video 
 
-![video](https://youtu.be/K7dM4FUniqg)
+![video](https://www.youtube.com/watch?v=K7dM4FUniqg&ab_channel=ericparra)
 
 ## Diagrama entidad relacion
 ![diagramaEntidadRelacion](https://user-images.githubusercontent.com/111714309/216983168-f2950cc1-fc8e-4960-bbf2-d74dd0d699dd.png)
